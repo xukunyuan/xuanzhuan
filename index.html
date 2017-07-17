@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>欢迎来到打地鼠</title>
+		<meta name="viewport" content="width=750,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var page1=document.createElement("div");
+			page1.class="page1";
+			page1.id="page1";
+			var pageTop=document.createElement("div");
+			pageTop.class="pageTop";
+			pageTop.id="pageTop";
+			
+			pageTop.innerHTML='<div id="time"><img src="img/countdown_time.png" /><span>10s</span></div>'+
+						'<div id="share"><img src="img/countdown_share.png" />"</div>'+
+						'<div id="startGame"><img src="img/game_btn_star.png"/></div>'+
+						'<div id="change">剩余<span>5</span>次机会</div>';
+			page1.appendChild(pageTop) ;
+			document.body.appendChild(page1);
+			var mouse=document.createElement("div");
+			mouse.class="mouse";
+			mouse.id="mouse";
+			var str="";
+			for(var i=0;i<12;i++){
+				str=str+"<div><img id='ds"+i+"' src='img/vendor_people00.png' /></div>";
+			}
+			mouse.innerHTML=str;
+			page1.appendChild(mouse);
+			/*获取元素需要的变量*/
+			var startbtn = document.querySelector("#startGame");
+			var timeSpan = document.querySelector("#time span");
+			var orClick;
+			var randomNum;
+			var score=0;
+			var end=function(){
+				var endImg=document.createElement("div");
+				endImg.id="endImg";
+				endImg.innerHTML="<img src='img/pop_score_bg.png' />"+
+							"<h3>"+score+"分"+"</h3>"+
+							"<h2 id='again'>再来一次</h2>"
+					document.body.appendChild(endImg);	
+					document.querySelector("#again").onclick=function(){
+					location.reload()
+				}
+			}		
+			/*开始按钮之后的执行的内容*/
+			var startEvent = function(){
+				startbtn.style.display = "none";
+				var num = 10;
+				var clearTime = setInterval(function(){
+					orClick = false;
+//					重置地鼠
+					for(var i = 0;i<12;i++){
+						document.querySelector("#ds"+i).src = "img/vendor_people00.png";
+					}
+					timeSpan.innerHTML = num +"s";
+					num--;
+					if(num<0){
+						clearInterval(clearTime);
+						end();
+					}
+					randomNum = parseInt(12*Math.random());
+					document.querySelector("#ds"+randomNum).src = "img/vendor_hole01.png";
+				},1000)
+				var clickmouse=function(Event){
+					var str="ds"+randomNum;
+					if(str==Event.target.id&&!orClick){
+						Event.target.src="img/vendor_hole02.png";
+						score +=100;
+						orClick=true;
+					}
+				}
+				mouse.addEventListener("click",clickmouse)	
+			}			
+			startbtn.addEventListener("click",startEvent)
+			
+			
+			
+		</script>
+	</body>
+</html>
+ 

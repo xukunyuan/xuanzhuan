@@ -1,0 +1,120 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body,html{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#page1{
+	width: 100%;
+	height:100%;
+	background-image: url(../img/game_youxi_bg.jpg);
+	background-size: 100% 100%;
+	display: flex;
+	flex-direction: column;
+}
+#pageTop{
+	height: 30%;	
+}
+#mouse{
+	height: 70%;
+}
+#mouse div{
+	width: 33.3%;
+	float: left;
+}
+#mouse div img{
+	width: 100%;
+	
+}
+#time{
+	width: 30%;
+	position: absolute;
+	left: 50px;
+	top: 20px;
+}
+#time img{
+	width: 100%;
+}
+#time span{
+	position: absolute;
+	left:110px;
+	top:45px;
+	font-size: 40px;
+}
+#share{
+	width: 15%;
+	position: absolute;
+	right: 10px;
+	top: 0px;
+}
+#share img{
+	width: 100%;
+}
+#startGame{
+	width: 50%;
+	position: absolute;
+	left: 60%;
+	margin-left:-30% ;
+	top:100px;
+}
+#startGame img{
+	width: 100%;
+	
+}
+#change{
+
+	width: 50%;
+	position: absolute;
+	left: 60%;
+	margin-left:-30% ;
+	top:250px;
+	text-align: center;
+	font-size: 40px;
+}
+#change span{
+	color:orange;
+	padding-right:20px;
+	padding-left: 20px;
+	font-size: 70px;
+	font-weight: 900;
+}
+#endImg{
+	width: 100%;
+	height: 100%;
+	color:rgba(0,0,0,0.5);
+	position: absolute;
+	top:0;
+	left:0;
+}
+#endImg img{
+	width: 80%;
+	position: absolute;
+	left:40%;
+	margin-left: -30%;
+	top:20%;
+}
+#endImg h3{
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	top: 40%;
+	color:#fff;
+	font-size: 70px;
+}
+#endImg h2{
+	width: 50%;
+	position: absolute;
+	top: 65%;
+	color:#fff;
+	font-size: 70px;
+	border-radius: 20px;
+	background: #FFA500;
+	text-align: center;
+	left: 50%;
+	margin-left: -25%;
+	
+}
